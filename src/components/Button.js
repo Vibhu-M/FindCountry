@@ -9,15 +9,17 @@ const Button = ({title}) =>{
 
 const styles = StyleSheet.create({
     containerStyle: {
-        height: 35,
-        width: 100,
-        backgroundColor: 'gray',
+        height: 38,
+        width: 110,
+        backgroundColor: '#a1afbf',//#8db1eb
         borderRadius:15,
         justifyContent:'center',
         alignContent:'center',
-        marginRight:5
+        marginRight:5,
+        
     },
     titleStyle:{
+        paddingTop:7,
         alignSelf: 'center',
         fontStyle: 'italic',
         fontWeight: '500',

@@ -46,7 +46,10 @@ const SearchScreen = ({navigation}) => {
                     <TouchableOpacity style= {{alignSelf:'center',marginTop:15}} onPress={()=> {addCountry(results.name)}}>
                         <Button title = "Add Country" />
                     </TouchableOpacity>
-                    <TouchableOpacity style= {{alignSelf:'center',marginTop:15}} onPress={()=> {navigation.navigate("List",{countries: userCountries,del:{deleteCountry}})}}>
+                    <TouchableOpacity style= {{alignSelf:'center',marginTop:15}} onPress=
+                    {
+                        ()=> {navigation.navigate("List",{countries: userCountries,del:{deleteCountry},navigation:{navigation}})}
+                    }>
                         <Button title = "My Countries" />
                     </TouchableOpacity>
                 </View>

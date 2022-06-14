@@ -2,13 +2,14 @@ import {React,useState,AsyncStorage,useEffect} from 'react';
 import {Text,FlatList,View,StyleSheet,TouchableOpacity} from 'react-native';
 import CountryEle from '../components/CountryEle';
 import { Octicons } from '@expo/vector-icons';
-
+import { withNavigation } from 'react-navigation';
 //(item) =>{del(index);deleteCountry(index)}
-    
+ //navigation.navigate("Country")   
     
 const ListUserCountries = ({navigation}) =>{
     const [countries,setCountries] = useState(navigation.getParam("countries"));
     const del = navigation.getParam("del").deleteCountry;
+    
     const deleteCountry = (index) => {
         let arr = [...countries];
         arr.splice(index,1)
@@ -21,13 +22,14 @@ const ListUserCountries = ({navigation}) =>{
             keyExtractor = {(name)=>Math.random(1)*99999}
             renderItem = {({item,index})=>{
                 return (<View style = {styles.containerStyle}>
-                <CountryEle name = {item}/>
+                <TouchableOpacity style = {{flex:1}}onPress={()=>navigation.navigate("Country",{countryName:item})}>
+                    <CountryEle name = {item}/>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={(item) =>{del(index);deleteCountry(index)}}>
                     <View style = {styles.iconContainer}>
                         <Octicons style = {styles.iconStyle} size = {37} name = "trash"/>
                     </View>
                 </TouchableOpacity>
-                
                 </View>)
             }}
         />
@@ -57,4 +59,4 @@ const styles = StyleSheet.create({
         alignSelf:'center'
     }
 })
-export default ListUserCountries;
+export default withNavigation(ListUserCountries);
