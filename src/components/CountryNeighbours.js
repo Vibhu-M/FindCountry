@@ -11,6 +11,7 @@ const CountryNeighbours = ({neighbours}) => {
     console.log(neighbours.length)
     const [results,setResults] = useState([]);
     const [errorMessage,setErrorMessage] = useState("");
+    const res = [];
     const getCountryDataByCode = (code) => {
         fetch(`https://restcountries.com/v2/alpha/${code}`)
         .then(response => response.json(),err => {Promise.reject(err);})
@@ -22,7 +23,7 @@ const CountryNeighbours = ({neighbours}) => {
             getCountryDataByCode(neighbours[i]);
         }
     },[])
-    
+    //
    return (<View>
     <FlatList 
         data={results} 

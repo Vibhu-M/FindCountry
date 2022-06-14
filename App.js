@@ -3,10 +3,12 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import SearchScreen from './src/screens/SearchScreen';
 import { CountryProvider } from './src/context/CountryContext';
+import ListUserCountries from './src/screens/ListUserCountries';
 
 const navigator = createStackNavigator(
     {
         Search: SearchScreen,
+        List: ListUserCountries
     },
     {
         initialRouteName:'Search',

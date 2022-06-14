@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'gray',
         borderRadius:15,
         justifyContent:'center',
-        alignContent:'center'
+        alignContent:'center',
+        marginRight:5
     },
     titleStyle:{
         alignSelf: 'center',

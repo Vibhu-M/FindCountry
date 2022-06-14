@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 
 export default (param) => {
-    const [results,setResults] = useState({});
+    const [results,setResults] = useState(null);
     const [errorMessage,setErrorMessage] = useState("");
     let getCountryData;
     const getCountryDataByName = (country) => {
